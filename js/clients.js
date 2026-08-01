@@ -129,7 +129,7 @@ clientForm?.addEventListener('submit', (evt) => {
     showNotification('Client added ✓', 'success');
 });
 
-// Logout Operation
+// Logout Operation from the dashboard
 document.getElementById('logout-btn')?.addEventListener('click', () => {
     localStorage.removeItem('crm_session');
     window.location.href = 'index.html';

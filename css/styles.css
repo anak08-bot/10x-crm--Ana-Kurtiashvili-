@@ -88,7 +88,7 @@ button {
     color: rgb(244, 243, 243);
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.1s ease;
 }
 
 button:hover {

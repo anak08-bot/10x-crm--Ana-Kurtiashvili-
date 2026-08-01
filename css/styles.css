@@ -85,7 +85,7 @@ button {
     border-radius: calc(var(--radius) - 2px);
     border: none;
     background: var(--primary);
-    color: white;
+    color: rgb(244, 243, 243);
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s ease;

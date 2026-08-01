@@ -111,7 +111,7 @@ if (loginForm) {
             email: activeUser.email,
             loginAt: new Date().toISOString()
         };
-
+        
         localStorage.setItem('crm_session', JSON.stringify(sessionPayload));
         window.location.href = 'clients.html';
     });

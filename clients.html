@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="dashboard-layout">
-        <!-- ნავიგაციის ზოლი (Sidebar) -->
+        <!-- navigation (Sidebar) -->
         <nav class="sidebar">
             <h2>10X CRM</h2>
             <ul>
@@ -18,7 +18,7 @@
             <button id="logout-btn" class="logout-btn">Logout</button>
         </nav>
 
-        <!-- მთავარი კონტენტი -->
+        <!-- main content -->
         <main class="main-content">
             <header class="content-header">
                 <h1>Clients</h1>
@@ -27,14 +27,14 @@
 
             <div id="toast" class="toast hidden"></div>
             
-            <!-- კლიენტების სიის კონტეინერი -->
+            <!-- clients list container -->
             <div id="clients-container" class="clients-grid">
                 <p class="loading">Loading clients...</p>
             </div>
         </main>
     </div>
 
-    <!-- მოდალური ფანჯარა ახალი კლიენტის დასამატებლად -->
+    
     <div id="client-modal" class="modal hidden">
         <div class="modal-content">
             <span id="close-modal-btn" class="close">&times;</span>

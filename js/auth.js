@@ -41,7 +41,7 @@ if (signupForm) {
         const isEmailTaken = storedUsers.some(u => u.email === email.toLowerCase());
 
         if (isEmailTaken) {
-            document.querySelector('#email-error').textContent = 'An account with this email already exists';
+            document.querySelector('#email-error').textContent = 'An account with this email already exists. Please log in.';
             isInvalid = true;
         }
 

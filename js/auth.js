@@ -1,248 +1,118 @@
+const showToast = (message, type = 'success') => {
+    const toast = document.querySelector('#toast');
+    if (!toast) return;
+    
+    toast.textContent = message;
+    toast.className = `toast ${type}`;
+    
+    setTimeout(() => {
+        toast.className = 'toast hidden';
     }, 3000);
+};
 
+// Sign Up Handler
+const signupForm = document.querySelector('#signup-form');
+if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        clearErrors();
+        const fullName = document.querySelector('#fullName').value.trim();
+        const email = document.querySelector('#email').value.trim();
+        const company = document.querySelector('#company').value.trim();
+        const password = document.querySelector('#password').value;
+        const confirmPassword = document.querySelector('#confirmPassword').value;
 
-        const fullName = document
-            .getElementById("fullName")
-            .value
-            .trim();
-
-        const email = document
-            .getElementById("signupEmail")
-            .value
-            .trim()
-            .toLowerCase();
-
-        const company = document
-            .getElementById("company")
-            .value
-            .trim();
-
-        const password = document
-            .getElementById("signupPassword")
-            .value;
-
-        const confirmPassword = document
-            .getElementById("confirmPassword")
-            .value;
-
-        let valid = true;
+        // Clear error messages
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        let isInvalid = false;
 
         if (fullName.length < 3) {
-
-            showError(
-                "nameError",
-                "Full name must be at least 3 characters"
-            );
-
-            valid = false;
-
+            document.querySelector('#fullName-error').textContent = 'Full name must be at least 3 characters';
+            isInvalid = true;
         }
 
-        if (
-            !email.includes("@") ||
-            !email.includes(".")
-        ) {
-
-            showError(
-                "signupEmailError",
-                "Please enter a valid email address"
-            );
-
-            valid = false;
-
+        const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!isEmailValid) {
+            document.querySelector('#email-error').textContent = 'Please enter a valid email address';
+            isInvalid = true;
         }
 
-        const users = getUsers();
+        const storedUsers = JSON.parse(localStorage.getItem('crm_users')) || [];
+        const isEmailTaken = storedUsers.some(u => u.email === email.toLowerCase());
 
-        if (
-            users.some(user => user.email === email)
-        ) {
-
-            showError(
-                "signupEmailError",
-                "An account with this email already exists"
-            );
-
-            valid = false;
-
+        if (isEmailTaken) {
+            document.querySelector('#email-error').textContent = 'An account with this email already exists';
+            isInvalid = true;
         }
 
-        const hasLetter = /[a-zA-Z]/.test(password);
-        const hasNumber = /[0-9]/.test(password);
-
-        if (
-            password.length < 8 ||
-            !hasLetter ||
-            !hasNumber
-        ) {
-
-            showError(
-                "signupPasswordError",
-                "Password must be at least 8 characters and contain a letter and a number"
-            );
-
-            valid = false;
-
+        const isValidPassword = password.length >= 8 && /[a-zA-Z]/.test(password) && /[0-9]/.test(password);
+        if (!isValidPassword) {
+            document.querySelector('#password-error').textContent = 'Password must be at least 8 characters and contain a letter and a number';
+            isInvalid = true;
         }
 
         if (password !== confirmPassword) {
-
-            showError(
-                "confirmPasswordError",
-                "Passwords do not match"
-            );
-
-            valid = false;
-
+            document.querySelector('#confirmPassword-error').textContent = 'Passwords do not match';
+            isInvalid = true;
         }
 
-        if (!valid) return;
+        if (isInvalid) return;
 
-        const newUser = {
-
+        const record = {
             id: Date.now(),
-
             fullName,
-
-            email,
-
-            company,
-
+            email: email.toLowerCase(),
             password,
-
+            company,
             createdAt: new Date().toISOString()
-
         };
 
-        users.push(newUser);
+        storedUsers.push(record);
+        localStorage.setItem('crm_users', JSON.stringify(storedUsers));
 
-        saveUsers(users);
-
-        showToast(
-            "Account created successfully!"
-        );
-
-        setTimeout(() => {
-
-            window.location.href = "index.html";
-
-        }, 1500);
-
+        showToast('Account created successfully! Please log in.', 'success');
+        setTimeout(() => window.location.href = 'index.html', 1500);
     });
-
 }
 
-
-
-// ===========================
-// LOGIN
-// ===========================
-
-function initLogin() {
-
-    const form = document.getElementById("loginForm");
-
-    form.addEventListener("submit", function (e) {
-
+// Log In Handler
+const loginForm = document.querySelector('#login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        clearErrors();
+        const email = document.querySelector('#login-email').value.trim();
+        const password = document.querySelector('#login-password').value;
 
-        const email = document
-            .getElementById("email")
-            .value
-            .trim()
-            .toLowerCase();
-
-        const password = document
-            .getElementById("password")
-            .value;
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        let isInvalid = false;
 
         if (!email) {
-
-            showError(
-                "emailError",
-                "Email is required"
-            );
-
-            return;
-
+            document.querySelector('#login-email-error').textContent = 'Email is required';
+            isInvalid = true;
         }
-
         if (!password) {
-
-            showError(
-                "passwordError",
-                "Password is required"
-            );
-
-            return;
-
+            document.querySelector('#login-password-error').textContent = 'Password is required';
+            isInvalid = true;
         }
 
-        const users = getUsers();
+        if (isInvalid) return;
 
-        const user = users.find(user => {
+        const users = JSON.parse(localStorage.getItem('crm_users')) || [];
+        const activeUser = users.find(u => u.email === email.toLowerCase() && u.password === password);
 
-            return (
-                user.email === email &&
-                user.password === password
-            );
-
-        });
-
-        if (!user) {
-
-            showToast(
-                "Invalid email or password",
-                false
-            );
-
+        if (!activeUser) {
+            showToast('Invalid email or password', 'error');
             return;
-
         }
 
-        const session = {
-
-            userId: user.id,
-
-            email: user.email,
-
+        const sessionPayload = {
+            userId: activeUser.id,
+            email: activeUser.email,
             loginAt: new Date().toISOString()
-
         };
 
-        saveSession(session);
-
-        window.location.href = "dashboard.html";
-
+        localStorage.setItem('crm_session', JSON.stringify(sessionPayload));
+        window.location.href = 'clients.html';
     });
-
-}
-
-
-
-// ===========================
-// Helpers
-// ===========================
-
-function showError(id, message) {
-
-    document.getElementById(id).innerText = message;
-
-}
-
-function clearErrors() {
-
-    const errors = document.querySelectorAll(".error");
-
-    errors.forEach(error => {
-
-        error.innerText = "";
-
-    });
-
 }

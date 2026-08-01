@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10X CRM - Clients</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/guard.js"></script>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- ნავიგაციის ზოლი (Sidebar) -->
+        <nav class="sidebar">
+            <h2>10X CRM</h2>
+            <ul>
+                <li><a href="clients.html" class="active">Clients</a></li>
+            </ul>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </nav>
+
+        <!-- მთავარი კონტენტი -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Clients</h1>
+                <button id="open-modal-btn" class="btn-primary">+ Add Client</button>
+            </header>
+
+            <div id="toast" class="toast hidden"></div>
+            
+            <!-- კლიენტების სიის კონტეინერი -->
+            <div id="clients-container" class="clients-grid">
+                <p class="loading">Loading clients...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- მოდალური ფანჯარა ახალი კლიენტის დასამატებლად -->
+    <div id="client-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close">&times;</span>
+            <h3>Add New Client</h3>
+            <form id="add-client-form">
+                <div class="input-group">
+                    <label for="client-name">Name</label>
+                    <input type="text" id="client-name" required>
+                    <span class="error-message" id="client-name-error"></span>
+                </div>
+                <div class="input-group">
+                    <label for="client-email">Email</label>
+                    <input type="email" id="client-email" required>
+                    <span class="error-message" id="client-email-error"></span>
+                </div>
+                <div class="input-group">
+                    <label for="client-phone">Phone</label>
+                    <input type="text" id="client-phone" required>
+                </div>
+                <div class="input-group">
+                    <label for="client-company">Company</label>
+                    <input type="text" id="client-company" required>
+                </div>
+                <div class="input-group">
+                    <label for="client-value">Deal Value ($)</label>
+                    <input type="number" id="client-value" required>
+                </div>
+                <button type="submit" class="btn-primary">Save Client</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/clients.js"></script>
+</body>
+</html>

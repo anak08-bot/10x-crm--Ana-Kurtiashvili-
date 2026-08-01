@@ -1,98 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>10X CRM - Sign Up</title>
-
-    <link rel="stylesheet" href="./css/styles.css">
-
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
+    <!-- authentication container -->
     <div class="auth-container">
-
-        <h1>Create your account</h1>
-
-        <form id="signupForm">
-
-            <div class="form-group">
-
-                <label>Full Name</label>
-
-                <input type="text" id="fullName">
-
-                <small class="error" id="nameError"></small>
-
+        <h2>Create your account</h2>
+        
+        <!-- sign up form -->
+        <form id="signup-form">
+            
+            <div class="input-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="John Doe">
+                <span class="error-message" id="fullName-error"></span>
             </div>
 
-            <div class="form-group">
-
-                <label>Email</label>
-
-                <input type="email" id="signupEmail">
-
-                <small class="error" id="signupEmailError"></small>
-
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="example@domain.com">
+                <span class="error-message" id="email-error"></span>
             </div>
 
-            <div class="form-group">
-
-                <label>Company</label>
-
+            <div class="input-group">
+                <label for="company">Company (optional)</label>
                 <input type="text" id="company" placeholder="Company (optional)">
-
+                <span class="error-message" id="company-error"></span>
             </div>
 
-            <div class="form-group">
-
-                <label>Password</label>
-
-                <input type="password" id="signupPassword">
-
-                <small class="error" id="signupPasswordError"></small>
-
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••">
+                <span class="error-message" id="password-error"></span>
             </div>
 
-            <div class="form-group">
-
-                <label>Confirm Password</label>
-
-                <input type="password" id="confirmPassword">
-
-                <small class="error" id="confirmPasswordError"></small>
-
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="••••••••">
+                <span class="error-message" id="confirmPassword-error"></span>
             </div>
 
-            <button type="submit">
-                Create Account
-            </button>
-
+            <button type="submit">Create Account</button>
         </form>
 
-        <p>
-
-            Already have an account?
-
-            <a href="index.html">
-                Log in
-            </a>
-
+        <p class="auth-redirect">
+            Already have an account? <a href="index.html">Log in</a>
         </p>
-
     </div>
 
-    <div id="toast"></div>
-
-    <script src="./js/starage.js"></script>
-    <script src="js/guard.js"></script>
-    <script src="./js/auth.js"></script>
-
+    <!-- authentication scripts -->
+    <script src="js/auth.js"></script>
 </body>
-
 </html>

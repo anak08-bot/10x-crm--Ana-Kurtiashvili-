@@ -1,10 +1,10 @@
 const showToast = (message, type = 'success') => {
     const toast = document.querySelector('#toast');
     if (!toast) return;
-    
+
     toast.textContent = message;
     toast.className = `toast ${type}`;
-    
+
     setTimeout(() => {
         toast.className = 'toast hidden';
     }, 3000);
@@ -111,7 +111,7 @@ if (loginForm) {
             email: activeUser.email,
             loginAt: new Date().toISOString()
         };
-        
+
         localStorage.setItem('crm_session', JSON.stringify(sessionPayload));
         window.location.href = 'clients.html';
     });

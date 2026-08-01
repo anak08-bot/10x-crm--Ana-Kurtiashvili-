@@ -1,30 +1,4 @@
-// ===========================
-// Run correct function
-// ===========================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    if (document.getElementById("signupForm")) {
-        initSignup();
-    }
-
-    if (document.getElementById("loginForm")) {
-        initLogin();
-    }
-
-});
-
-
-// ===========================
-// SIGN UP
-// ===========================
-
-function initSignup() {
-
-    const form = document.getElementById("signupForm");
-
-    form.addEventListener("submit", function (e) {
-
+    }, 3000);
         e.preventDefault();
 
         clearErrors();

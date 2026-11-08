@@ -1,49 +1,36 @@
-# 10X CRM - Client Management Dashboard
+10X CRM Project
 
-A modern, fast, and responsive Customer Relationship Management (CRM) web application built with clean HTML5, modern CSS3 (Variables & Dark Mode), and Vanilla JavaScript (ES6+).
+About
+10X CRM is a lightweight customer relationship management tool for sales managers, built with vanilla JavaScript only. It lets users register, log in, manage a client pipeline and track notes and reminders. All data is stored in the browser's localStorage.
 
----
+ Features
+- Sign up / Log in with validation and an auth guard on protected pages
+- Dashboard: live clock, 4 statistics, pipeline overview, 5 most recent clients
+- Clients: load from DummyJSON API, add (POST), delete (DELETE), change status
+- Combined search, status filter chips and sorting
+- Client details modal with timestamped notes and a 1-minute follow-up reminder
+- Profile: edit name/company, change password, reset CRM data
+- Dark / light theme saved in localStorage; toast notifications; error handling with Retry
 
-## 🚀 Features
+ Tech Stack
+HTML5, CSS3, vanilla JavaScript (ES6+), `fetch` + async/await, localStorage, DummyJSON API, deployed on Vercel/Netlify.
 
-- **Authentication & Authorization System**
-  - User Registration with form validation (Name, Email, Password verification).
-  - Secure Login authentication backed by local storage.
-  - Route Guard (`guard.js`) to prevent unauthorized access to protected dashboard pages.
+ How to Run
+1. Clone the repository.
+2. Open `index.html` in a browser (or use a local server such as VS Code Live Server).
 
-- **Client Management Dashboard**
-  - **Dynamic Fetching:** Automatically populates mock data via external API (`DummyJSON`) on initial load.
-  - **Client Creation:** Interactive modal for adding new clients with unique email validation.
-  - **Status & Deal Tracking:** Visual badges for deal stages (`Lead`, `Contacted`, `Won`, `Lost`) and formatted currency values.
-  - **Client Deletion:** Fast removal of records with instant UI updates.
-  - **Persistence:** All updates persist locally using browser `localStorage`.
+ Live Demo
+<!-- TODO: paste your Vercel/Netlify link here -->
 
-- **Modern & Responsive UI**
-  - Dark-mode aesthetic designed with CSS custom properties (variables).
-  - Responsive grid layout for client cards and form components.
-  - Toast notification system for clear user feedback.
+ Test Account
+Email: `demo@test.com` / Password: `demo1234` — or simply sign up with a new account.
+(Create this account yourself once on the live site before submitting.)
 
----
+ Data Model (localStorage keys)
+`crm_users`, `crm_session`, `crm_clients`, `crm_theme`
 
-## 🛠️ Tech Stack
+ Note on Security
+Passwords are stored in plain text only because this is a learning project without a backend. In production, passwords must be hashed and stored on a server.
 
-- **Frontend:** HTML5, CSS3 (Flexbox, Grid, CSS Variables)
-- **Scripting:** JavaScript (ES6+, Async/Await, DOM Manipulation)
-- **Data Persistence:** Web Storage API (`localStorage`)
-- **API Integration:** [DummyJSON API](https://dummyjson.com/) (Mock User Data)
-
----
-
-## 📁 Project Structure
-
-```text
-├── css/
-│   └── styles.css        # Main stylesheet (Variables, Themes, Layouts)
-├── js/
-│   ├── auth.js          # Registration & Authentication logic
-│   ├── clients.js       # Dashboard UI & Client CRUD operations
-│   └── guard.js        # Authentication route guard
-├── index.html           # Login page
-├── signup.html          # Registration page
-├── clients.html         # Main CRM Dashboard
-└── README.md            # Project documentation
+ Credits
+<!-- TODO: list who helped you and with what; AI tools used -->

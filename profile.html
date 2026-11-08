@@ -1,17 +1,46 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Profile — 10X CRM</title><link rel="stylesheet" href="css/style.css"></head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Profile — 10X CRM</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body data-page="profile">
-<header id="nav" class="nav"></header>
-<main class="container" style="max-width:560px">
-<div id="profInfo" class="card row block" style="justify-content:flex-start"></div>
-<div class="card block"><h3>Edit Profile</h3><form id="profileForm" novalidate>
-<div class="field"><input name="fullName" type="text" placeholder="Full Name"><small class="error"></small></div>
-<div class="field"><input name="company" type="text" placeholder="Company"><small class="error"></small></div>
-<button type="submit">Save Changes</button></form></div>
-<div class="card block"><h3>Change Password</h3><form id="passwordForm" novalidate>
-<div class="field"><input name="current" type="password" placeholder="Current Password"><small class="error"></small></div>
-<div class="field"><input name="next" type="password" placeholder="New Password"><small class="error"></small></div>
-<div class="field"><input name="confirm" type="password" placeholder="Confirm New Password"><small class="error"></small></div>
-<button type="submit">Change Password</button></form></div>
-<div class="card block"><h3>Data</h3><button id="resetBtn" class="danger">Reset CRM Data</button></div>
-</main>
-<div id="toasts"></div><script src="js/core.js"></script><script src="js/profile.js"></script></body></html>
+    <header id="nav" class="nav"></header>
+    <main class="container" style="max-width:560px">
+        <div id="profInfo" class="card row block" style="justify-content:flex-start"></div>
+        <div class="card block">
+            <h3>Edit Profile</h3>
+            <form id="profileForm" novalidate>
+                <div class="field"><input name="fullName" type="text" placeholder="Full Name"><small
+                        class="error"></small></div>
+                <div class="field"><input name="company" type="text" placeholder="Company"><small class="error"></small>
+                </div>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+        <div class="card block">
+            <h3>Change Password</h3>
+            <form id="passwordForm" novalidate>
+                <div class="field"><input name="current" type="password" placeholder="Current Password"><small
+                        class="error"></small></div>
+                <div class="field"><input name="next" type="password" placeholder="New Password"><small
+                        class="error"></small></div>
+                <div class="field"><input name="confirm" type="password" placeholder="Confirm New Password"><small
+                        class="error"></small></div>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+        <div class="card block">
+            <h3>Data</h3><button id="resetBtn" class="danger">Reset CRM Data</button>
+        </div>
+    </main>
+    <div id="toasts"></div>
+    <script src="js/core.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

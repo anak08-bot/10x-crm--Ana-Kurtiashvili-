@@ -1,28 +1,74 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Clients — 10X CRM</title><link rel="stylesheet" href="css/style.css"></head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Clients — 10X CRM</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body data-page="clients">
-<header id="nav" class="nav"></header>
-<main class="container">
-<div class="row"><h1>Clients</h1><button id="addBtn">+ Add Client</button></div>
-<div class="toolbar">
-<input id="search" type="text" placeholder="Search name or company...">
-<div id="chips" class="toolbar" style="margin:0">
-<button class="chip active" data-status="All">All</button><button class="chip" data-status="Lead">Lead</button><button class="chip" data-status="Contacted">Contacted</button><button class="chip" data-status="Won">Won</button><button class="chip" data-status="Lost">Lost</button></div>
-<select id="sort"><option value="newest">Sort: Newest first</option><option value="name">Name A→Z</option><option value="deal">Deal value: high → low</option></select>
-</div>
-<div id="clientList"></div></main>
+    <header id="nav" class="nav"></header>
+    <main class="container">
+        <div class="row">
+            <h1>Clients</h1><button id="addBtn">+ Add Client</button>
+        </div>
+        <div class="toolbar">
+            <input id="search" type="text" placeholder="Search name or company...">
+            <div id="chips" class="toolbar" style="margin:0">
+                <button class="chip active" data-status="All">All</button><button class="chip"
+                    data-status="Lead">Lead</button><button class="chip"
+                    data-status="Contacted">Contacted</button><button class="chip" data-status="Won">Won</button><button
+                    class="chip" data-status="Lost">Lost</button>
+            </div>
+            <select id="sort">
+                <option value="newest">Sort: Newest first</option>
+                <option value="name">Name A→Z</option>
+                <option value="deal">Deal value: high → low</option>
+            </select>
+        </div>
+        <div id="clientList"></div>
+    </main>
 
-<div id="addModal" class="modal-bg hidden"><div class="card modal"><button class="close" data-close>✕</button><h2>Add Client</h2>
-<form id="addForm" novalidate>
-<div class="field"><input name="clientName" type="text" placeholder="Name"><small class="error"></small></div>
-<div class="field"><input name="email" type="text" placeholder="Email"><small class="error"></small></div>
-<div class="field"><input name="phone" type="text" placeholder="Phone"><small class="error"></small></div>
-<div class="field"><input name="company" type="text" placeholder="Company"><small class="error"></small></div>
-<div class="field"><input name="dealValue" type="text" placeholder="Deal Value"><small class="error"></small></div>
-<div class="field"><select name="status"><option>Lead</option><option>Contacted</option><option>Won</option><option>Lost</option></select><small class="error"></small></div>
-<button type="submit" style="width:100%">Add Client</button></form></div></div>
+    <div id="addModal" class="modal-bg hidden">
+        <div class="card modal"><button class="close" data-close>✕</button>
+            <h2>Add Client</h2>
+            <form id="addForm" novalidate>
+                <div class="field"><input name="clientName" type="text" placeholder="Name"><small class="error"></small>
+                </div>
+                <div class="field"><input name="email" type="text" placeholder="Email"><small class="error"></small>
+                </div>
+                <div class="field"><input name="phone" type="text" placeholder="Phone"><small class="error"></small>
+                </div>
+                <div class="field"><input name="company" type="text" placeholder="Company"><small class="error"></small>
+                </div>
+                <div class="field"><input name="dealValue" type="text" placeholder="Deal Value"><small
+                        class="error"></small></div>
+                <div class="field"><select name="status">
+                        <option>Lead</option>
+                        <option>Contacted</option>
+                        <option>Won</option>
+                        <option>Lost</option>
+                    </select><small class="error"></small></div>
+                <button type="submit" style="width:100%">Add Client</button>
+            </form>
+        </div>
+    </div>
 
-<div id="detailsModal" class="modal-bg hidden"><div class="card modal"><button class="close" data-close>✕</button>
-<div id="detailsBody"></div><h3>Notes</h3><ul id="notesList" class="notes"></ul>
-<div class="toolbar"><input id="noteInput" type="text" placeholder="Write a note..."><button id="addNoteBtn">Add note</button></div>
-<button id="remindBtn" class="ghost">Remind me in 1 min</button></div></div>
-<div id="toasts"></div><script src="js/core.js"></script><script src="js/clients.js"></script></body></html>
+    <div id="detailsModal" class="modal-bg hidden">
+        <div class="card modal"><button class="close" data-close>✕</button>
+            <div id="detailsBody"></div>
+            <h3>Notes</h3>
+            <ul id="notesList" class="notes"></ul>
+            <div class="toolbar"><input id="noteInput" type="text" placeholder="Write a note..."><button
+                    id="addNoteBtn">Add note</button></div>
+            <button id="remindBtn" class="ghost">Remind me in 1 min</button>
+        </div>
+    </div>
+    <div id="toasts"></div>
+    <script src="js/core.js"></script>
+    <script src="js/clients.js"></script>
+</body>
+
+</html>

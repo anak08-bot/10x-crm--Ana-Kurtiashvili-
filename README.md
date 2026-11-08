@@ -50,7 +50,7 @@
 
 · External API: DummyJSON API
 
-· Deployment: Vercel / Netlify
+· Deployment: Vercel 
 
 
 
@@ -65,7 +65,7 @@ git clone https://github.com/anak08-bot/10x-crm--Ana-Kurtiashvili-.git
 
 🌐 Live Demo
 
-👉 Click here for Live Demo (Replace with your actual Vercel/Netlify link)
+👉 Click here for Live Demo https://10x-crm-dun.vercel.app 
 
 
 🔑 Test Account

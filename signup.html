@@ -1,59 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10X CRM - Sign Up</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-    <!-- authentication container -->
-    <div class="auth-container">
-        <h2>Create your account</h2>
-        
-        <!-- sign up form -->
-        <form id="signup-form">
-            
-            <div class="input-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" placeholder="John Doe">
-                <span class="error-message" id="fullName-error"></span>
-            </div>
-
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" placeholder="example@domain.com">
-                <span class="error-message" id="email-error"></span>
-            </div>
-
-            <div class="input-group">
-                <label for="company">Company (optional)</label>
-                <input type="text" id="company" placeholder="Company (optional)">
-                <span class="error-message" id="company-error"></span>
-            </div>
-
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="••••••••">
-                <span class="error-message" id="password-error"></span>
-            </div>
-
-            <div class="input-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" placeholder="••••••••">
-                <span class="error-message" id="confirmPassword-error"></span>
-            </div>
-
-            <button type="submit">Create Account</button>
-        </form>
-
-        <p class="auth-redirect">
-            Already have an account? <a href="index.html">Log in</a>
-        </p>
-    </div>
-
-    <!-- authentication scripts -->
-    <script src="js/auth.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign Up — 10X CRM</title><link rel="stylesheet" href="css/style.css"></head>
+<body data-page="signup">
+<div class="auth-wrap"><div class="card auth-card"><h1>Create your account</h1>
+<form id="signupForm" novalidate>
+<div class="field"><input name="fullName" type="text" placeholder="Full Name"><small class="error"></small></div>
+<div class="field"><input name="email" type="text" placeholder="Email"><small class="error"></small></div>
+<div class="field"><input name="company" type="text" placeholder="Company (optional)"><small class="error"></small></div>
+<div class="field"><input name="password" type="password" placeholder="Password"><small class="error"></small></div>
+<div class="field"><input name="confirm" type="password" placeholder="Confirm Password"><small class="error"></small></div>
+<button type="submit" style="width:100%">Create Account</button></form>
+<p class="muted center">Already have an account? <a href="index.html">Log in</a></p></div></div>
+<div id="toasts"></div><script src="js/core.js"></script><script src="js/auth.js"></script></body></html>

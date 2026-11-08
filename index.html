@@ -1,43 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10X CRM - Login</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/guard.js"></script>
-</head>
-
-<body>
-    <div class="auth-container">
-        <h2>Welcome back</h2>
-
-
-        <div id="toast" class="toast hidden"></div>
-
-        <!-- login section for users -->
-        <form id="login-form">
-            <div class="input-group">
-                <label for="login-email">Email</label>
-                <input type="text" id="login-email" placeholder="example@domain.com">
-                <span class="error-message" id="login-email-error"></span>
-            </div>
-
-            <div class="input-group">
-                <label for="login-password">Password</label>
-                <input type="password" id="login-password" placeholder="••••••••">
-                <span class="error-message" id="login-password-error"></span>
-            </div>
-
-            <button type="submit">Log In</button>
-        </form>
-        <p class="auth-redirect">
-            Don't have an account? <a href="signup.html">Sign up</a>
-        </p>
-    </div>
-<!-- connect to js file -->
-    <script src="js/auth.js"></script>
-</body>
-
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Log In — 10X CRM</title><link rel="stylesheet" href="css/style.css"></head>
+<body data-page="login">
+<div class="auth-wrap"><div class="card auth-card"><h1>Welcome back</h1>
+<form id="loginForm" novalidate>
+<div class="field"><input name="email" type="text" placeholder="Email"><small class="error"></small></div>
+<div class="field"><input name="password" type="password" placeholder="Password"><small class="error"></small></div>
+<button type="submit" style="width:100%">Log In</button></form>
+<p class="muted center">Don't have an account? <a href="signup.html">Sign up</a></p></div></div>
+<div id="toasts"></div><script src="js/core.js"></script><script src="js/auth.js"></script></body></html>

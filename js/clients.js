@@ -23,9 +23,10 @@ function getVisibleClients() {
   let result = clients.filter(c => view.filter === 'All' || c.status === view.filter); // filter() returns a COPY
   const q = view.search.trim().toLowerCase();
   if (q) result = result.filter(c => c.name.toLowerCase().includes(q) || c.company.toLowerCase().includes(q));
-  if (view.sort === 'name') result.sort((a, b) => a.name.localeCompare(b.name));
+  //  changed to sort from z-a
+  if (view.sort === 'name') result.sort((a, b) => b.name.localeCompare(b.name));   
   else if (view.sort === 'deal') result.sort((a, b) => b.dealValue - a.dealValue);
-  else result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  else result.sort(( b, a) => new Date(b.createdAt) - new Date(a.createdAt));
   return result;
 }
 
